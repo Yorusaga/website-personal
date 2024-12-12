@@ -1,0 +1,10 @@
+/* style.css */
+body {
+  margin: 0;
+  overflow: hidden;
+  background-color: rgb(19, 21, 25);
+}
+
+canvas {
+  position: absolute;
+}
