@@ -115,3 +115,27 @@
     
 })(jQuery);
 
+document.addEventListener("DOMContentLoaded", function () {
+    const filterButtons = document.querySelectorAll(".filter-buttons button");
+    const galleryItems = document.querySelectorAll(".gallery-item");
+
+    filterButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            // Hapus kelas 'active' dari semua tombol
+            filterButtons.forEach(btn => btn.classList.remove("active"));
+            // Tambahkan kelas 'active' ke tombol yang diklik
+            button.classList.add("active");
+
+            const filter = button.getAttribute("data-filter");
+
+            galleryItems.forEach(item => {
+                if (filter === "all" || item.getAttribute("data-category") === filter) {
+                    item.style.display = "block"; // Tampilkan item
+                } else {
+                    item.style.display = "none"; // Sembunyikan item
+                }
+            });
+        });
+    });
+});
+
